@@ -11,14 +11,16 @@ namespace String_Parse
         static void Main(string[] args)
         {
 
+            char[] delimChars1 = { ',', ';', '-', '=', '/', '+',':',';',' ' };
+            delimChars1 = delimChars1.ToArray();
+            char[] letters = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
 
-            char[] delimChars = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
-          
-            string phrase = "svsgshg156sgsaz456dhsj56h4545";
+            char[] final = letters.Concat(delimChars1).ToArray();
+            
+            string phrase = "svs gs hg15.6sg saz 4 5,6dhsj5 6h45:45,49bnz3.53afh";
 
-            string[] numbers = phrase.Split(delimChars,StringSplitOptions.RemoveEmptyEntries);
-
-                    
+            string[] numbers = phrase.Split(final,StringSplitOptions.RemoveEmptyEntries);
+                     
 
             foreach (string number in numbers)
             {
@@ -26,7 +28,7 @@ namespace String_Parse
             }
 
 
-            char[] delimChars1 = { ',', ';', '-', '=', '/', '+' };
+            
 
             //string fin = numbers.ToString();
             //string[] final  = numbers.ToString().Split(delimChars1, StringSplitOptions.RemoveEmptyEntries);
